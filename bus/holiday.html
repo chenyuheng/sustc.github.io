@@ -465,35 +465,6 @@
             busdata_hl2rb[i][2] = "未发车";
         }
     }
-    var ins_table_hl2rb = $('#work-bus-hl2rb').DataTable( {
-        data: busdata_hl2rb,
-        scrollY: 300,
-        paging: false,
-        searching : false,
-        bFilter: false,
-        info: false,
-        columns: [
-            { title: "发车时间" },
-            { title: "平时/高峰", "orderable": false },
-            { title: "状态", "orderable": false },
-        ],
-        rowCallback: function( row, data, index ) {
-            if ( data[2] == "已到达" )
-            {
-                $('td', row).css('background-color', '#003f43'); // SUSTech dark green
-                $('td', row).css('color', '#FFFFFF');
-            }
-            else if ( data[2] == "在途中" )
-            {
-                $('td', row).css('background-color', '#ed6c00'); // SUSTech orange
-                $('td', row).each(function(){
-                    $(this).html( '<b>'+$(this).text()+'</b>');
-                });
-            }
-        }
-    } );
-    var now_bus_offset =$(ins_table_hl2rb.row(Math.min(now_bus_row_hl2rb, busdata_hl2rb.length)).node()).offset().top - $(ins_table_hl2rb.row(0).node()).offset().top;
-    $("#bus-table-hl2rb .dataTables_scrollBody").scrollTop(now_bus_offset);
 
 </script>
 
@@ -517,35 +488,7 @@
             busdata_rb2hl[i][2] = "未发车";
         }
     }
-    var ins_table_rb2hl = $('#work-bus-rb2hl').DataTable( {
-        data: busdata_rb2hl,
-        scrollY: 300,
-        paging: false,
-        searching : false,
-        bFilter: false,
-        info: false,
-        columns: [
-            { title: "发车时间" },
-            { title: "平时/高峰", "orderable": false },
-            { title: "状态", "orderable": false },
-        ],
-        rowCallback: function( row, data, index ) {
-            if ( data[2] == "已到达" )
-            {
-                $('td', row).css('background-color', '#003f43'); // SUSTech dark green
-                $('td', row).css('color', '#FFFFFF');
-            }
-            else if ( data[2] == "在途中" )
-            {
-                $('td', row).css('background-color', '#ed6c00'); // SUSTech orange
-                $('td', row).each(function(){
-                    $(this).html( '<b>'+$(this).text()+'</b>');
-                });
-            }
-        }
-    } );
-    var now_bus_offset =$(ins_table_rb2hl.row(Math.min(now_bus_row_rb2hl, busdata_rb2hl.length)).node()).offset().top - $(ins_table_rb2hl.row(0).node()).offset().top;
-    $("#bus-table-rb2hl .dataTables_scrollBody").scrollTop(now_bus_offset);
+
 </script>
 
 
@@ -585,35 +528,7 @@
             busdata_lh2jyc[i][2] = "未发车";
         }
     }
-    var ins_table_lh2jyc = $('#work-bus-lh2jyc').DataTable( {
-        data: busdata_lh2jyc,
-        scrollY: 300,
-        paging: false,
-        searching : false,
-        bFilter: false,
-        info: false,
-        columns: [
-            { title: "发车时间" },
-            { title: "平时/高峰", "orderable": false },
-            { title: "状态", "orderable": false },
-        ],
-        rowCallback: function( row, data, index ) {
-            if ( data[2] == "已到达" )
-            {
-                $('td', row).css('background-color', '#003f43'); // SUSTech dark green
-                $('td', row).css('color', '#FFFFFF');
-            }
-            else if ( data[2] == "在途中" )
-            {
-                $('td', row).css('background-color', '#ed6c00'); // SUSTech orange
-                $('td', row).each(function(){
-                    $(this).html( '<b>'+$(this).text()+'</b>');
-                });
-            }
-        }
-    } );
-    var now_bus_offset =$(ins_table_lh2jyc.row(Math.min(now_bus_row_lh2jyc, busdata_lh2jyc.length)).node()).offset().top - $(ins_table_lh2jyc.row(0).node()).offset().top;
-    $("#bus-table-lh2jyc .dataTables_scrollBody").scrollTop(now_bus_offset);
+
 </script>
 
 
@@ -653,35 +568,164 @@
             busdata_jyc2lh[i][2] = "未发车";
         }
     }
-    var ins_table_jyc2lh = $('#work-bus-jyc2lh').DataTable( {
-        data: busdata_jyc2lh,
-        scrollY: 300,
-        paging: false,
-        searching : false,
-        bFilter: false,
-        info: false,
-        columns: [
-            { title: "发车时间" },
-            { title: "平时/高峰", "orderable": false },
-            { title: "状态", "orderable": false },
-        ],
-        rowCallback: function( row, data, index ) {
-            if ( data[2] == "已到达" )
-            {
-                $('td', row).css('background-color', '#003f43'); // SUSTech dark green
-                $('td', row).css('color', '#FFFFFF');
+
+    window.onload=function(){
+        // high land - research building
+        var ins_table_hl2rb = $('#work-bus-hl2rb').DataTable( {
+            data: busdata_hl2rb,
+            scrollY: 300,
+            paging: false,
+            searching : false,
+            bFilter: false,
+            info: false,
+            columns: [
+                { title: "发车时间" },
+                { title: "平时/高峰", "orderable": false },
+                { title: "状态", "orderable": false },
+            ],
+            rowCallback: function( row, data, index ) {
+                if ( data[2] == "已到达" )
+                {
+                    $('td', row).css('background-color', '#003f43'); // SUSTech dark green
+                    $('td', row).css('color', '#FFFFFF');
+                }
+                else if ( data[2] == "在途中" )
+                {
+                    $('td', row).css('background-color', '#ed6c00'); // SUSTech orange
+                    $('td', row).each(function(){
+                        $(this).html( '<b>'+$(this).text()+'</b>');
+                    });
+                }
             }
-            else if ( data[2] == "在途中" )
-            {
-                $('td', row).css('background-color', '#ed6c00'); // SUSTech orange
-                $('td', row).each(function(){
-                    $(this).html( '<b>'+$(this).text()+'</b>');
-                });
+        } );
+        var now_bus_offset =$(ins_table_hl2rb.row(Math.min(now_bus_row_hl2rb, busdata_hl2rb.length)).node()).offset().top - $(ins_table_hl2rb.row(0).node()).offset().top;
+        $("#bus-table-hl2rb .dataTables_scrollBody").scrollTop(now_bus_offset);
+
+        // research building - high land
+        var ins_table_rb2hl = $('#work-bus-rb2hl').DataTable( {
+            data: busdata_rb2hl,
+            scrollY: 300,
+            paging: false,
+            searching : false,
+            bFilter: false,
+            info: false,
+            columns: [
+                { title: "发车时间" },
+                { title: "平时/高峰", "orderable": false },
+                { title: "状态", "orderable": false },
+            ],
+            rowCallback: function( row, data, index ) {
+                if ( data[2] == "已到达" )
+                {
+                    $('td', row).css('background-color', '#003f43'); // SUSTech dark green
+                    $('td', row).css('color', '#FFFFFF');
+                }
+                else if ( data[2] == "在途中" )
+                {
+                    $('td', row).css('background-color', '#ed6c00'); // SUSTech orange
+                    $('td', row).each(function(){
+                        $(this).html( '<b>'+$(this).text()+'</b>');
+                    });
+                }
             }
-        }
-    } );
-    var now_bus_offset =$(ins_table_jyc2lh.row(Math.min(now_bus_row_jyc2lh, busdata_jyc2lh.length)).node()).offset().top - $(ins_table_jyc2lh.row(0).node()).offset().top;
-    $("#bus-table-jyc2lh .dataTables_scrollBody").scrollTop(now_bus_offset);
+        } );
+        var now_bus_offset =$(ins_table_rb2hl.row(Math.min(now_bus_row_rb2hl, busdata_rb2hl.length)).node()).offset().top - $(ins_table_rb2hl.row(0).node()).offset().top;
+        $("#bus-table-rb2hl .dataTables_scrollBody").scrollTop(now_bus_offset);
+
+        // lychee hill - ji yue cheng
+        var ins_table_lh2jyc = $('#work-bus-lh2jyc').DataTable( {
+            data: busdata_lh2jyc,
+            scrollY: 300,
+            paging: false,
+            searching : false,
+            bFilter: false,
+            info: false,
+            columns: [
+                { title: "发车时间" },
+                { title: "平时/高峰", "orderable": false },
+                { title: "状态", "orderable": false },
+            ],
+            rowCallback: function( row, data, index ) {
+                if ( data[2] == "已到达" )
+                {
+                    $('td', row).css('background-color', '#003f43'); // SUSTech dark green
+                    $('td', row).css('color', '#FFFFFF');
+                }
+                else if ( data[2] == "在途中" )
+                {
+                    $('td', row).css('background-color', '#ed6c00'); // SUSTech orange
+                    $('td', row).each(function(){
+                        $(this).html( '<b>'+$(this).text()+'</b>');
+                    });
+                }
+            }
+        } );
+        var now_bus_offset =$(ins_table_lh2jyc.row(Math.min(now_bus_row_lh2jyc, busdata_lh2jyc.length)).node()).offset().top - $(ins_table_lh2jyc.row(0).node()).offset().top;
+        $("#bus-table-lh2jyc .dataTables_scrollBody").scrollTop(now_bus_offset);
+
+        // ji yue cheng - lychee hill
+        var ins_table_jyc2lh = $('#work-bus-jyc2lh').DataTable( {
+            data: busdata_jyc2lh,
+            scrollY: 300,
+            paging: false,
+            searching : false,
+            bFilter: false,
+            info: false,
+            columns: [
+                { title: "发车时间" },
+                { title: "平时/高峰", "orderable": false },
+                { title: "状态", "orderable": false },
+            ],
+            rowCallback: function( row, data, index ) {
+                if ( data[2] == "已到达" )
+                {
+                    $('td', row).css('background-color', '#003f43'); // SUSTech dark green
+                    $('td', row).css('color', '#FFFFFF');
+                }
+                else if ( data[2] == "在途中" )
+                {
+                    $('td', row).css('background-color', '#ed6c00'); // SUSTech orange
+                    $('td', row).each(function(){
+                        $(this).html( '<b>'+$(this).text()+'</b>');
+                    });
+                }
+            }
+        } );
+        var now_bus_offset =$(ins_table_jyc2lh.row(Math.min(now_bus_row_jyc2lh, busdata_jyc2lh.length)).node()).offset().top - $(ins_table_jyc2lh.row(0).node()).offset().top;
+        $("#bus-table-jyc2lh .dataTables_scrollBody").scrollTop(now_bus_offset);
+
+        // i park - lychee hill
+        var ins_table_ip2lh = $('#work-bus-ip2lh').DataTable( {
+            data: busdata_ip2lh,
+            scrollY: 300,
+            paging: false,
+            searching : false,
+            bFilter: false,
+            info: false,
+            columns: [
+                { title: "发车时间" },
+                { title: "平时/高峰", "orderable": false },
+                { title: "状态", "orderable": false },
+            ],
+            rowCallback: function( row, data, index ) {
+                if ( data[2] == "已到达" )
+                {
+                    $('td', row).css('background-color', '#003f43'); // SUSTech dark green
+                    $('td', row).css('color', '#FFFFFF');
+                }
+                else if ( data[2] == "在途中" )
+                {
+                    $('td', row).css('background-color', '#ed6c00'); // SUSTech orange
+                    $('td', row).each(function(){
+                        $(this).html( '<b>'+$(this).text()+'</b>');
+                    });
+                }
+            }
+        } );
+        var now_bus_offset =$(ins_table_ip2lh.row(Math.min(now_bus_row_ip2lh, busdata_ip2lh.length)).node()).offset().top - $(ins_table_ip2lh.row(0).node()).offset().top;
+        $("#bus-table-ip2lh .dataTables_scrollBody").scrollTop(now_bus_offset);
+    });            
+
 </script>
 
 
@@ -698,8 +742,8 @@
 </ul>
 </li>
 </ul>
-<footer class="page-footer"><span class="copyright">Copyright &#xA9; SUSTech GitBook Team 2018 all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x8BE5;&#x9875;&#x9762;&#x4FEE;&#x6539;&#x65F6;&#x95F4;&#xFF1A;
-2019-01-04 21:30:09
+<footer class="page-footer"><span class="copyright">Copyright &#xA9; SUSTech GitBook Team 2019 all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x8BE5;&#x9875;&#x9762;&#x4FEE;&#x6539;&#x65F6;&#x95F4;&#xFF1A;
+2019-01-04 21:53:44
 </span></footer>
                                 
                                 </section>
@@ -743,7 +787,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"节假日","level":"1.3.2","depth":2,"next":{"title":"使用指南","level":"1.4","depth":1,"path":"tips/README.md","ref":"tips/README.md","articles":[{"title":"Sakai | 文件分享","level":"1.4.1","depth":2,"path":"tips/sakai.md","ref":"tips/sakai.md","articles":[]},{"title":"联创 | 扫描","level":"1.4.2","depth":2,"path":"tips/unifound.md","ref":"tips/unifound.md","articles":[]}]},"previous":{"title":"工作日","level":"1.3.1","depth":2,"path":"bus/workday.md","ref":"bus/workday.md","articles":[]},"dir":"ltr"},"config":{"plugins":["custom-js-css","splitter","katex","advanced-emoji","tbfed-pagefooter"],"root":"./src","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright &copy SUSTech GitBook Team 2018","modify_label":"该页面修改时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"custom-js-css":{"js":["./js/jquery.min.js","./js/jquery.dataTables.min.js","./js/busuanzi.pure.mini.js"],"css":["./css/jquery.dataTables.min.css"]},"advanced-emoji":{"embedEmojis":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"SUSTech GitBook","language":"zh-hans","gitbook":"*"},"file":{"path":"bus/holiday.md","mtime":"2019-01-04T13:30:09.182Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-04T13:31:04.635Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"节假日","level":"1.3.2","depth":2,"next":{"title":"使用指南","level":"1.4","depth":1,"path":"tips/README.md","ref":"tips/README.md","articles":[{"title":"Sakai | 文件分享","level":"1.4.1","depth":2,"path":"tips/sakai.md","ref":"tips/sakai.md","articles":[]},{"title":"联创 | 扫描","level":"1.4.2","depth":2,"path":"tips/unifound.md","ref":"tips/unifound.md","articles":[]}]},"previous":{"title":"工作日","level":"1.3.1","depth":2,"path":"bus/workday.md","ref":"bus/workday.md","articles":[]},"dir":"ltr"},"config":{"plugins":["custom-js-css","splitter","katex","advanced-emoji","tbfed-pagefooter"],"root":"./src","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright &copy SUSTech GitBook Team 2019","modify_label":"该页面修改时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"custom-js-css":{"js":["./js/jquery.min.js","./js/jquery.dataTables.min.js","./js/busuanzi.pure.mini.js"],"css":["./css/jquery.dataTables.min.css"]},"advanced-emoji":{"embedEmojis":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"SUSTech GitBook","language":"zh-hans","gitbook":"*"},"file":{"path":"bus/holiday.md","mtime":"2019-01-04T13:53:44.709Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-04T13:54:41.077Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
